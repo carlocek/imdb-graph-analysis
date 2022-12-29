@@ -1,0 +1,14 @@
+2022-12-29 16:32:03,122 bult object IMDBGraph
+2022-12-29 16:32:45,487 extracted data from file and created dictionaries
+2022-12-29 16:33:34,563 built the main graph
+2022-12-29 16:33:35,789 the actor who worked for the longest period until 1930 is Courtenay, William
+2022-12-29 16:33:37,264 the actor who worked for the longest period until 1940 is Edison, Thomas A.
+2022-12-29 16:33:39,057 the actor who worked for the longest period until 1950 is St. Denis, Ruth
+2022-12-29 16:33:41,224 the actor who worked for the longest period until 1960 is King Haakon VII
+2022-12-29 16:33:44,250 the actor who worked for the longest period until 1970 is Kaiser Wilhelm II
+2022-12-29 16:33:48,282 the actor who worked for the longest period until 1980 is Emperor Franz Josef
+2022-12-29 16:33:53,086 the actor who worked for the longest period until 1990 is King Edward VII
+2022-12-29 16:34:00,133 the actor who worked for the longest period until 2000 is Oakley, Annie
+2022-12-29 16:34:09,411 the actor who worked for the longest period until 2010 is Edison, Thomas A.
+2022-12-29 16:34:20,490 the actor who worked for the longest period until 2020 is King Edward VII
+2022-12-29 17:42:41,786 the pair of actors who collaborated the most with 420 is ('North, Peter (I)', 'Byron, Tom (I)')

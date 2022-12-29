@@ -40,7 +40,7 @@ class IMDBGraph:
     def buildGraph(self):
         self.G.add_nodes_from([(id, {"name": a, "type": 0}) for id, a in self.idActorDict.items()])
         self.G.add_nodes_from([(id, {"name": m, "type": 1, "year": self.movieYearDict[m]}) for id, m in self.idMovieDict.items()])
-        self.G.add_edges_from([(self.actorIdDict[v["Actor"]], self.movieIdDict[v["Movie"]]) for k, v in self.edgesDict.items()])
+        self.G.add_edges_from([(self.actorIdDict[v["Actor"]], self.movieIdDict[v["Movie"]]) for v in self.edgesDict.values()])
         self.logger.info('built the main graph')
 
     def getYear(self, movieString):
@@ -50,9 +50,38 @@ class IMDBGraph:
         else:
             yearString = match.group(1)
             year = int(yearString)
-        return movieString, year
+        return (movieString, year)
+
+    #question 1.E
+    def computeLongevousActor(self, maxYear):
+        actorMinYearDict = {}
+        actorMaxYearDict = {}
+        for node in self.G.nodes().data():
+            if (node[1]["type"] == 1 and node[1]["year"] != "Not found" and node[1]["year"] <= maxYear):
+                for l in self.G.neighbors(node[0]):
+                    if(l not in actorMinYearDict or node[1]["year"] < actorMinYearDict.get(l)):
+                        actorMinYearDict.update({l : node[1]["year"]})
+
+        for node in self.G.nodes().data():
+            if (node[1]["type"] == 1 and node[1]["year"] != "Not found" and node[1]["year"] <= maxYear):
+                for l in self.G.neighbors(node[0]):
+                    if(l not in actorMaxYearDict or node[1]["year"] > actorMaxYearDict.get(l)):
+                        actorMaxYearDict.update({l : node[1]["year"]})
+
+        maxWorkPeriod = 0
+        actorMax = None
+        for a in actorMinYearDict.items():
+            if maxWorkPeriod < (actorMaxYearDict.get(a[0]) - actorMinYearDict.get(a[0])):
+                actorMax = a[0]
+                maxWorkPeriod = actorMaxYearDict.get(a[0]) - actorMinYearDict.get(a[0])
+        self.logger.info(f"the actor who worked for the longest period until {maxYear} is {self.idActorDict[actorMax]} with {maxWorkPeriod} years")
+
+    def computeAllLongevousActor(self):
+        for x in range (1930, 2030, 10):
+            self.computeLongevousActor(x)
 
 
+    #question 2.1
     def customBFS(self, LCC, startNode):
         visited = {}
         queue = Queue()
@@ -64,7 +93,7 @@ class IMDBGraph:
             for nextNode in LCC.neighbors(currentNode):
                 if nextNode not in visited:
                     queue.put(nextNode)
-                    visited[nextNode]=visited[currentNode]+1
+                    visited[nextNode] = visited[currentNode]+1
         #Gruob by distance to create dict of distance
         Bu = defaultdict(list)
         for key, value in visited.items():
@@ -75,7 +104,7 @@ class IMDBGraph:
         i = lb = max(Bu)
         ub = 2*lb
         while ub > lb:
-            self.logger.info ("entro nel while di computeDiameter")
+            self.logger.info("entro nel while di computeDiameter")
             eccDict = nx.eccentricity(LCC, Bu[i])
             Bi = max(eccDict.values())
             maxVal = max(Bi,lb)
@@ -99,8 +128,9 @@ class IMDBGraph:
             #startNode = max(LCC.degree,key=lambda x: x[1])
             Bu = self.customBFS(LCC, startNode)
             d = self.computeDiameter(LCC, Bu)
-            self.logger.info (f"the diameter of the graph relative to year {maxYear} is {d}")
+            self.logger.info(f"the diameter of the graph relative to year {maxYear} is {d}")
 
+    #question 3.I
     def maxCollaborations(self):
         collaborations = {}
         for a in self.G.nodes().data():
@@ -111,15 +141,29 @@ class IMDBGraph:
                 collaborations.update({a[1]["name"]: c})
         maxCollaborations = max(list(collaborations.values()))
         maxCollabActor = [k for k, v in collaborations.items() if v == maxCollaborations][0]
-        self.logger.info (f"the actor with most collaborations ({maxCollaborations}) is {maxCollabActor}")
-        return (maxCollabActor, maxCollaborations)
+        self.logger.info(f"the actor with most collaborations ({maxCollaborations}) is {maxCollabActor}")
 
+    #question 4
+    def buildActorGraph(self):
+        movie_list = self.idMovieDict.keys()
+        for i in movie_list:
+            actors = list(self.G.neighbors(i))
+            for j in combinations(actors, 2):
+                if self.A.has_edge(*j):
+                    self.A[j[0]][j[1]]['weight'] += 1
+                else:
+                    self.A.add_edge(j[0],j[1], weight = 1)
 
-
-
-
-
-
+    def mostCollaboratingActors(self):
+        max = 0
+        idActor1 = -1
+        idActor2 = -1
+        for n1, n2 in self.A.edges:
+            if max < self.A[n1][n2]["weight"]:
+                max = self.A[n1][n2]["weight"]
+                idActor1 = n1
+                idActor2 = n2
+        self.logger.info(f"the pair of actors who collaborated the most with {max} is {(self.idActorDict[idActor1], self.idActorDict[idActor2])}")
 
 
 
@@ -127,11 +171,12 @@ def main():
     obj = IMDBGraph()
     obj.extractData()
     obj.buildGraph()
-    obj.maxCollaborations()
-    obj.computeAllDiameters()
+    obj.computeAllLongevousActor()
+    #obj.maxCollaborations()
+    #obj.computeAllDiameters()
+    obj.buildActorGraph()
+    obj.mostCollaboratingActors()
     
-
-
 if __name__=="__main__":
     main()
 

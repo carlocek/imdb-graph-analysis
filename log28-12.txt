@@ -1,0 +1,51 @@
+2022-12-29 02:36:55,759 bult object IMDBGraph
+2022-12-29 02:37:28,089 extracted data from file and created dictionaries
+2022-12-29 02:38:05,764 built the main graph
+2022-12-29 02:38:18,875 the actor with most collaborations (40431) is Flowers, Bess
+2022-12-29 02:38:40,984 entro nel while di computeDiameter
+2022-12-29 02:38:56,173 entro nel while di computeDiameter
+2022-12-29 02:39:03,098 entro nel while di computeDiameter
+2022-12-29 02:39:20,837 entro nel while di computeDiameter
+2022-12-29 02:39:30,199 entro nel while di computeDiameter
+2022-12-29 02:40:24,732 entro nel while di computeDiameter
+2022-12-29 02:41:00,045 entro nel while di computeDiameter
+2022-12-29 02:46:03,187 the diameter of the graph relative to year 1930 is 34
+2022-12-29 02:46:29,430 entro nel while di computeDiameter
+2022-12-29 02:46:32,509 entro nel while di computeDiameter
+2022-12-29 02:46:34,100 entro nel while di computeDiameter
+2022-12-29 02:47:20,974 entro nel while di computeDiameter
+2022-12-29 02:47:49,185 entro nel while di computeDiameter
+2022-12-29 02:48:37,027 the diameter of the graph relative to year 1940 is 34
+2022-12-29 02:49:03,321 entro nel while di computeDiameter
+2022-12-29 02:49:12,287 entro nel while di computeDiameter
+2022-12-29 02:49:16,533 entro nel while di computeDiameter
+2022-12-29 02:49:20,914 entro nel while di computeDiameter
+2022-12-29 02:49:29,788 entro nel while di computeDiameter
+2022-12-29 02:49:36,259 entro nel while di computeDiameter
+2022-12-29 02:49:38,518 entro nel while di computeDiameter
+2022-12-29 02:50:27,021 entro nel while di computeDiameter
+2022-12-29 02:50:46,126 the diameter of the graph relative to year 1950 is 36
+2022-12-29 02:51:12,872 entro nel while di computeDiameter
+2022-12-29 02:51:16,021 the diameter of the graph relative to year 1960 is 35
+2022-12-29 02:51:47,493 entro nel while di computeDiameter
+2022-12-29 02:52:05,186 entro nel while di computeDiameter
+2022-12-29 02:52:17,539 the diameter of the graph relative to year 1970 is 27
+2022-12-29 02:52:54,499 entro nel while di computeDiameter
+2022-12-29 02:53:17,157 entro nel while di computeDiameter
+2022-12-29 02:53:28,697 entro nel while di computeDiameter
+2022-12-29 02:56:38,910 the diameter of the graph relative to year 1980 is 25
+2022-12-29 02:57:23,714 entro nel while di computeDiameter
+2022-12-29 02:58:08,502 entro nel while di computeDiameter
+2022-12-29 02:58:31,360 the diameter of the graph relative to year 1990 is 27
+2022-12-29 02:59:23,912 entro nel while di computeDiameter
+2022-12-29 03:00:26,890 entro nel while di computeDiameter
+2022-12-29 03:00:37,531 entro nel while di computeDiameter
+2022-12-29 03:03:04,695 entro nel while di computeDiameter
+2022-12-29 03:05:40,353 the diameter of the graph relative to year 2000 is 28
+2022-12-29 03:06:47,199 entro nel while di computeDiameter
+2022-12-29 03:07:21,690 entro nel while di computeDiameter
+2022-12-29 03:14:13,854 entro nel while di computeDiameter
+2022-12-29 03:20:20,113 the diameter of the graph relative to year 2010 is 28
+2022-12-29 03:21:40,731 entro nel while di computeDiameter
+2022-12-29 03:34:19,693 entro nel while di computeDiameter
+2022-12-29 03:37:23,063 the diameter of the graph relative to year 2020 is 32
