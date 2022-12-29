@@ -1,0 +1,4 @@
+2022-12-29 02:21:47,380 Object IMDBGraph is constructed
+2022-12-29 02:22:34,373 extracted data from file and created dictionaries
+2022-12-29 02:23:16,354 built the main graph
+2022-12-29 02:23:31,742 l'attore con più collaborazioni (40431) è Flowers, Bess
