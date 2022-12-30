@@ -1,0 +1,66 @@
+2022-12-30 00:22:12,161 bult object IMDBGraph
+2022-12-30 00:22:38,535 extracted data from file and created dictionaries
+2022-12-30 00:23:05,069 built the main graph
+2022-12-30 00:23:05,069 QUESTION 1.E
+2022-12-30 00:23:05,754 the actor who worked for the longest period until 1930 is Courtenay, William with 36 years
+2022-12-30 00:23:06,578 the actor who worked for the longest period until 1940 is Edison, Thomas A. with 44 years
+2022-12-30 00:23:07,566 the actor who worked for the longest period until 1950 is St. Denis, Ruth with 56 years
+2022-12-30 00:23:08,798 the actor who worked for the longest period until 1960 is King Haakon VII with 63 years
+2022-12-30 00:23:10,363 the actor who worked for the longest period until 1970 is Kaiser Wilhelm II with 74 years
+2022-12-30 00:23:12,375 the actor who worked for the longest period until 1980 is Emperor Franz Josef with 84 years
+2022-12-30 00:23:15,017 the actor who worked for the longest period until 1990 is King Edward VII with 96 years
+2022-12-30 00:23:18,558 the actor who worked for the longest period until 2000 is Oakley, Annie with 106 years
+2022-12-30 00:23:24,429 the actor who worked for the longest period until 2010 is Edison, Thomas A. with 114 years
+2022-12-30 00:23:31,157 the actor who worked for the longest period until 2020 is King Edward VII with 120 years
+2022-12-30 00:23:31,219 QUESTION 3.I
+2022-12-30 00:23:40,347 the actor with most collaborations (40431) is Flowers, Bess
+2022-12-30 00:23:40,364 QUESTION 2.1
+2022-12-30 00:23:57,496 entro nel while di computeDiameter
+2022-12-30 00:24:10,036 entro nel while di computeDiameter
+2022-12-30 00:24:15,567 entro nel while di computeDiameter
+2022-12-30 00:24:31,051 entro nel while di computeDiameter
+2022-12-30 00:24:39,566 entro nel while di computeDiameter
+2022-12-30 00:25:27,892 entro nel while di computeDiameter
+2022-12-30 00:25:58,366 entro nel while di computeDiameter
+2022-12-30 00:28:41,255 the diameter of the graph relative to year 1930 is 34
+2022-12-30 00:29:04,087 entro nel while di computeDiameter
+2022-12-30 00:29:06,925 entro nel while di computeDiameter
+2022-12-30 00:29:08,346 entro nel while di computeDiameter
+2022-12-30 00:29:45,388 entro nel while di computeDiameter
+2022-12-30 00:30:09,323 entro nel while di computeDiameter
+2022-12-30 00:30:51,765 the diameter of the graph relative to year 1940 is 34
+2022-12-30 00:31:14,412 entro nel while di computeDiameter
+2022-12-30 00:31:22,264 entro nel while di computeDiameter
+2022-12-30 00:31:26,501 entro nel while di computeDiameter
+2022-12-30 00:31:30,303 entro nel while di computeDiameter
+2022-12-30 00:31:37,939 entro nel while di computeDiameter
+2022-12-30 00:31:43,823 entro nel while di computeDiameter
+2022-12-30 00:31:45,756 entro nel while di computeDiameter
+2022-12-30 00:32:29,418 entro nel while di computeDiameter
+2022-12-30 00:32:46,652 the diameter of the graph relative to year 1950 is 36
+2022-12-30 00:33:09,686 entro nel while di computeDiameter
+2022-12-30 00:33:12,365 the diameter of the graph relative to year 1960 is 35
+2022-12-30 00:33:39,870 entro nel while di computeDiameter
+2022-12-30 00:33:54,354 entro nel while di computeDiameter
+2022-12-30 00:34:05,258 the diameter of the graph relative to year 1970 is 27
+2022-12-30 00:34:36,888 entro nel while di computeDiameter
+2022-12-30 00:34:56,362 entro nel while di computeDiameter
+2022-12-30 00:35:06,164 entro nel while di computeDiameter
+2022-12-30 00:37:50,478 the diameter of the graph relative to year 1980 is 25
+2022-12-30 00:38:27,301 entro nel while di computeDiameter
+2022-12-30 00:39:06,801 entro nel while di computeDiameter
+2022-12-30 00:39:26,541 the diameter of the graph relative to year 1990 is 27
+2022-12-30 00:40:11,566 entro nel while di computeDiameter
+2022-12-30 00:41:05,692 entro nel while di computeDiameter
+2022-12-30 00:41:14,803 entro nel while di computeDiameter
+2022-12-30 00:43:19,595 entro nel while di computeDiameter
+2022-12-30 00:45:33,459 the diameter of the graph relative to year 2000 is 28
+2022-12-30 00:46:32,370 entro nel while di computeDiameter
+2022-12-30 00:47:03,146 entro nel while di computeDiameter
+2022-12-30 00:53:04,570 entro nel while di computeDiameter
+2022-12-30 00:58:22,885 the diameter of the graph relative to year 2010 is 28
+2022-12-30 00:59:33,260 entro nel while di computeDiameter
+2022-12-30 01:10:31,276 entro nel while di computeDiameter
+2022-12-30 01:13:11,090 the diameter of the graph relative to year 2020 is 32
+2022-12-30 01:13:11,162 QUESTION 4
+2022-12-30 01:52:57,042 the pair of actors who collaborated the most with 420 is ('North, Peter (I)', 'Byron, Tom (I)')
