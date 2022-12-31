@@ -132,7 +132,7 @@ class IMDBGraph():
         i = lb = max(Bu)
         ub = 2*lb
         while ub > lb:
-            self.logger.info(f"entro nel while di computeDiameter")
+            #self.logger.info(f"entro nel while di computeDiameter")
             eccDict = nx.eccentricity(LCC, Bu[i])
             Bi = max(eccDict.values())
             maxVal = max(Bi,lb)
@@ -155,11 +155,7 @@ class IMDBGraph():
         for maxYear in range (1930, 2030, 10):
             SG = self.G.subgraph([n for n, a in self.G.nodes().data() if a["type"] == 0 or (a["year"] != "Not found" and a["year"] < maxYear)])
             tempLCC = max(nx.connected_components(SG), key=len)
-            #tempLCC = sorted(nx.connected_components(SG), key=len, reverse=True)[0]
             LCC = SG.subgraph(tempLCC)
-            #degreeDict = dict(LCC.degree())
-            #m = max(degreeDict.values())
-            #startNode = [k for k, v in degreeDict.items() if v == m][0]
             startNode = max(LCC.degree, key=lambda x: x[1])[0]
             Bu = self.customBFS(LCC, startNode)
             d = self.computeDiameter(LCC, Bu)
@@ -170,8 +166,10 @@ class IMDBGraph():
     def maxCollaborations(self):
         '''
         iterates on the graph nodes considering only actor nodes,
-        counts the collaborations done by every actor and builds the dict
-        where keys are actors id and values are the number of collaborations of that actor
+        counts the collaborations done by every actor by iterating on its neighbors (films)
+        and counting for every film the number of neighbors of that film.
+        builds the dict where keys are actors id and values are the number
+        of collaborations of that actor.
         returns the maximum number of collaborations with the relaive actor
         '''
         collaborations = {}
@@ -181,7 +179,7 @@ class IMDBGraph():
                 for nb in self.G.neighbors(n):
                     c += (len(self.G[nb])-1)
                 collaborations.update({a["name"]: c})
-        maxCollaborations = max(list(collaborations.values()))
+        maxCollaborations = max(collaborations.values())
         maxCollabActor = [k for k, v in collaborations.items() if v == maxCollaborations][0]
         self.logger.info(f"the actor with most collaborations ({maxCollaborations}) is {maxCollabActor}")
 
@@ -191,9 +189,13 @@ class IMDBGraph():
         '''
         builds the actor graph iterating on the movies and creating an edge 
         for every combination there is between any two actors that participated in that movie,
-        checks if the edge already exists and increments the weight attribute of that edge
+        checks if the edge already exists and increments the weight attribute of that edge.
+        evaluates the pair of actor who did the most films together by checking the weight
+        attribute of the edges as they are added to the graph
         '''
         maxCollab = 0
+        a1 = None
+        a2 = None
         for m in self.idMovieDict:
             if len(self.G[m]) > 1:
                 actors = list(self.G.neighbors(m))
@@ -202,18 +204,11 @@ class IMDBGraph():
                         self.A[t[0]][t[1]]['weight'] += 1
                         if self.A[t[0]][t[1]]['weight'] > maxCollab:
                             maxCollab = self.A[t[0]][t[1]]['weight']
+                            a1, a2 = t
                     else:
                         self.A.add_edge(t[0],t[1], weight = 1)
         self.logger.info(f"built the actor graph")
-
-    def mostCollaboratingActors(self):
-        '''
-        evaluates the edge with maximum weight and prints it with the two id of
-        the actors that form that edge
-        '''
-        a1, a2, w = max(self.A.edges().data("weight"), key = lambda x: x[2])
-        self.logger.info(f"the pair of actors who collaborated the most with is {(self.idActorDict[a1], self.idActorDict[a2])} with {w} collaborations")
-
+        self.logger.info(f"the pair of actors who collaborated the most with is {(self.idActorDict[a1], self.idActorDict[a2])} with {maxCollab} collaborations")
 
 
 def main():
@@ -241,7 +236,6 @@ def main():
     #answers question 4
     logging.info("QUESTION 4")
     obj.buildActorGraph()
-    obj.mostCollaboratingActors()
     
 if __name__=="__main__":
     main()
