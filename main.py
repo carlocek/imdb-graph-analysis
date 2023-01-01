@@ -131,18 +131,20 @@ class IMDBGraph():
         '''
         i = lb = max(Bu)
         ub = 2*lb
+        numBFS = 0
         while ub > lb:
             #self.logger.info(f"entro nel while di computeDiameter")
             eccDict = nx.eccentricity(LCC, Bu[i])
+            numBFS += len(Bu[i])
             Bi = max(eccDict.values())
             maxVal = max(Bi,lb)
             if maxVal > 2*(i - 1):
-                return maxVal
+                return (maxVal, numBFS)
             else: 
                 lb = maxVal
                 ub = 2*(i - 1) 
             i = i - 1 
-        return lb
+        return (lb, numBFS)
 
     def computeAllDiameters(self):
         '''
@@ -158,8 +160,8 @@ class IMDBGraph():
             LCC = SG.subgraph(tempLCC)
             startNode = max(LCC.degree, key=lambda x: x[1])[0]
             Bu = self.customBFS(LCC, startNode)
-            d = self.computeDiameter(LCC, Bu)
-            self.logger.info(f"the diameter of the graph relative to year {maxYear} is {d}")
+            d, numBFS = self.computeDiameter(LCC, Bu)
+            self.logger.info(f"the diameter of the graph relative to year {maxYear} is {d}: {numBFS} BFS executed")
 
 
     #question 3.I
@@ -235,7 +237,7 @@ def main():
 
     #answers question 4
     logging.info("QUESTION 4")
-    obj.buildActorGraph()
+    #obj.buildActorGraph()
     
 if __name__=="__main__":
     main()

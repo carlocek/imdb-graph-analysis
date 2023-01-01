@@ -1,0 +1,28 @@
+2023-01-01 15:52:53,867 bult object IMDBGraph
+2023-01-01 15:53:21,751 extracted data from file and created dictionaries
+2023-01-01 15:53:49,735 built the main graph
+2023-01-01 15:53:49,735 QUESTION 1.E
+2023-01-01 15:53:50,434 the actor who worked for the longest period until 1930 is Courtenay, William with 36 years
+2023-01-01 15:53:51,270 the actor who worked for the longest period until 1940 is Edison, Thomas A. with 44 years
+2023-01-01 15:53:52,280 the actor who worked for the longest period until 1950 is St. Denis, Ruth with 56 years
+2023-01-01 15:53:53,553 the actor who worked for the longest period until 1960 is King Haakon VII with 63 years
+2023-01-01 15:53:55,168 the actor who worked for the longest period until 1970 is Kaiser Wilhelm II with 74 years
+2023-01-01 15:53:57,255 the actor who worked for the longest period until 1980 is Emperor Franz Josef with 84 years
+2023-01-01 15:53:59,995 the actor who worked for the longest period until 1990 is King Edward VII with 96 years
+2023-01-01 15:54:04,139 the actor who worked for the longest period until 2000 is Oakley, Annie with 106 years
+2023-01-01 15:54:11,202 the actor who worked for the longest period until 2010 is Edison, Thomas A. with 114 years
+2023-01-01 15:54:19,470 the actor who worked for the longest period until 2020 is King Edward VII with 120 years
+2023-01-01 15:54:19,538 QUESTION 3.I
+2023-01-01 15:54:31,044 the actor with most collaborations (40431) is Flowers, Bess
+2023-01-01 15:54:31,063 QUESTION 2.1
+2023-01-01 15:59:41,789 the diameter of the graph relative to year 1930 is 34: 335 BFS executed
+2023-01-01 16:01:51,915 the diameter of the graph relative to year 1940 is 34: 76 BFS executed
+2023-01-01 16:03:46,339 the diameter of the graph relative to year 1950 is 36: 48 BFS executed
+2023-01-01 16:04:10,527 the diameter of the graph relative to year 1960 is 35: 1 BFS executed
+2023-01-01 16:05:01,239 the diameter of the graph relative to year 1970 is 27: 7 BFS executed
+2023-01-01 16:08:50,861 the diameter of the graph relative to year 1980 is 25: 40 BFS executed
+2023-01-01 16:10:26,749 the diameter of the graph relative to year 1990 is 27: 9 BFS executed
+2023-01-01 16:16:41,520 the diameter of the graph relative to year 2000 is 28: 36 BFS executed
+2023-01-01 16:30:00,663 the diameter of the graph relative to year 2010 is 28: 49 BFS executed
+2023-01-01 16:45:06,112 the diameter of the graph relative to year 2020 is 32: 46 BFS executed
+2023-01-01 16:45:06,200 QUESTION 4

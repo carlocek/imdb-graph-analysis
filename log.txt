@@ -1,7 +1,0 @@
-2022-12-31 00:27:32,738 bult object IMDBGraph
-2022-12-31 00:28:05,618 extracted data from file and created dictionaries
-2022-12-31 00:28:38,094 built the main graph
-2022-12-31 00:28:38,094 QUESTION 1.E
-2022-12-31 00:28:38,094 QUESTION 3.I
-2022-12-31 00:28:38,094 QUESTION 2.1
-2022-12-31 00:28:38,094 QUESTION 4
