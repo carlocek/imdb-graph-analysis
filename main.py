@@ -78,6 +78,14 @@ class IMDBGraph():
 
     #question 1.E
     def computeLongevousActor(self, maxYear):
+        '''
+        for every film up to year "maxYear":
+            for every actor that partecipates in that film:
+                compute first and last work year
+        for every actor
+            compute working period
+        find the actor who has worked for more years
+        '''
         actorMinYearDict = {}
         actorMaxYearDict = {}
         for node in self.G.nodes().data():
@@ -99,6 +107,10 @@ class IMDBGraph():
         self.logger.info(f"the actor who worked for the longest period until {maxYear} is {self.idActorDict[actorMax]} with {maxWorkPeriod} years")
 
     def computeAllLongevousActor(self):
+        '''
+        for every year x in {1930,1940,1950,1960,1970,1980,1990,2000,2010,2020}:
+            find the longevous actor up to year x
+        '''
         for x in range (1930, 2030, 10):
             self.computeLongevousActor(x)
 
