@@ -75,7 +75,6 @@ class IMDBGraph():
             year = int(yearString)
         return (movieString, year)
 
-
     #question 1.E
     def computeLongevousActor(self, maxYear):
         '''
@@ -88,29 +87,22 @@ class IMDBGraph():
         '''
         actorMinYearDict = {}
         actorMaxYearDict = {}
-        for node in self.G.nodes().data():
-            if (node[1]["type"] == 1 and node[1]["year"] != "Not found" and node[1]["year"] <= maxYear):
-                for l in self.G.neighbors(node[0]):
-                    if(l not in actorMinYearDict or node[1]["year"] < actorMinYearDict.get(l)):
-                        actorMinYearDict.update({l : node[1]["year"]})
-        for node in self.G.nodes().data():
-            if (node[1]["type"] == 1 and node[1]["year"] != "Not found" and node[1]["year"] <= maxYear):
-                for l in self.G.neighbors(node[0]):
-                    if(l not in actorMaxYearDict or node[1]["year"] > actorMaxYearDict.get(l)):
-                        actorMaxYearDict.update({l : node[1]["year"]})
+        for n, a in self.G.nodes().data():
+            if (a["type"] == 1 and a["year"] != "Not found" and a["year"] <= maxYear):
+                for nb in self.G.neighbors(n):
+                    if nb not in actorMinYearDict or a["year"] < actorMinYearDict.get(nb):
+                        actorMinYearDict.update({nb : a["year"]})
+                    if nb not in actorMaxYearDict or a["year"] > actorMaxYearDict.get(nb):
+                        actorMaxYearDict.update({nb : a["year"]})
         maxWorkPeriod = 0
         actorMax = None
-        for a in actorMinYearDict.items():
-            if maxWorkPeriod < (actorMaxYearDict.get(a[0]) - actorMinYearDict.get(a[0])):
-                actorMax = a[0]
-                maxWorkPeriod = actorMaxYearDict.get(a[0]) - actorMinYearDict.get(a[0])
+        for a in actorMinYearDict.keys():
+            if maxWorkPeriod < (actorMaxYearDict.get(a) - actorMinYearDict.get(a)):
+                actorMax = a
+                maxWorkPeriod = actorMaxYearDict.get(a) - actorMinYearDict.get(a)
         self.logger.info(f"the actor who worked for the longest period until {maxYear} is {self.idActorDict[actorMax]} with {maxWorkPeriod} years")
 
     def computeAllLongevousActor(self):
-        '''
-        for every year x in {1930,1940,1950,1960,1970,1980,1990,2000,2010,2020}:
-            find the longevous actor up to year x
-        '''
         for x in range (1930, 2030, 10):
             self.computeLongevousActor(x)
 
@@ -143,7 +135,7 @@ class IMDBGraph():
         '''
         i = lb = max(Bu)
         ub = 2*lb
-        numBFS = 0
+        numBFS = 1
         while ub > lb:
             #self.logger.info(f"entro nel while di computeDiameter")
             eccDict = nx.eccentricity(LCC, Bu[i])
@@ -249,7 +241,7 @@ def main():
 
     #answers question 4
     logging.info("QUESTION 4")
-    #obj.buildActorGraph()
+    obj.buildActorGraph()
     
 if __name__=="__main__":
     main()
