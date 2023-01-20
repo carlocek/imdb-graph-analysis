@@ -1,5 +1,5 @@
 # IMDB graph analysis
-This project was done in collaboration with my colleague [Carlo Ceccherelli](https://github.com/carlocek).
+This project was done in collaboration with my colleague [Luca Leuterr](https://github.com/Luca0079CM).
 
 We used **pandas** and **networkx** to build a graph from a tsv file extracted from IMDB where each row is a pair of strings separated by a tab: the first string is the name of an actor and the second is the title of a film he/she participated in (in the title string there are also other informations like the release year).
 
